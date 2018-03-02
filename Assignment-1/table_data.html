@@ -228,6 +228,8 @@ var organizations = [
 // outputs the first item of the organizations array. Just for testing.
 console.log(organizations[0]); 
 
+
+
 // Your JavaScript code goes here
 var text = "";
 	for(var x in organizations){
@@ -243,6 +245,16 @@ var text = "";
 	}
 	/* text += "<tr><td colspan='4'>Total Days</td><td align='center' class='totnum'>" + totdays + "</td></tr>"; */
 	document.getElementById("orginfo").innerHTML = text;
+	
+	document.getElementsByTagName("tr").onmouseover = function() {mouseOver()};
+	document.getElementsByTagName("tr").onmouseover=function(){mouseOut()};
+	
+	function mouseOver(){
+		document.getElementsByTagName("tr").style.color = Thistle;
+	}
+	function mouseOut(){
+		document.getElementsByTagName("tr").style.color=white;
+	}
 /*	document.getElementByID(td).onmouseover = function() {mouseOver()};
 	fuction mouseOver(){
 		document.getElementById(td).style.color= "red";
