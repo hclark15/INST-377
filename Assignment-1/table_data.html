@@ -9,10 +9,12 @@
 	}
 	table, th, td{
 		border: 1px solid black;
+		font-family: Georgia;
 	}
 	th{
 		background-color: #A871A8;
 		color: white;
+		font-family: "Lucida Console";
 	}
 	
 </style>
@@ -222,6 +224,11 @@ var organizations = [
 		
 			</tbody>
 		</table>
+		<table>
+			<thead></thead>
+			<tbody id = "stats">
+			</tbody>
+		</table>
 	</div>
 
 <script>
@@ -232,6 +239,12 @@ console.log(organizations[0]);
 
 // Your JavaScript code goes here
 var text = "";
+var newText="";
+var orgNum=0;
+var income=0;
+var year=0;
+var largeCompanies = 0;
+	
 	for(var x in organizations){
 		if (organizations.hasOwnProperty(x)){
 			var obj = organizations[x];
@@ -243,7 +256,7 @@ var text = "";
 					
 		}
 	}
-	/* text += "<tr><td colspan='4'>Total Days</td><td align='center' class='totnum'>" + totdays + "</td></tr>"; */
+
 	document.getElementById("orginfo").innerHTML = text;
 	
 	document.getElementsByTagName("tr").onmouseover = function() {mouseOver()};
