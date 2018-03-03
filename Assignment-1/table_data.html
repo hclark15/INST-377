@@ -268,20 +268,39 @@ var largeCompanies = 0;
 	}
 
 	document.getElementById("orginfo").innerHTML = text;
-	
-	document.getElementsByTagName("tr").onmouseover = function() {mouseOver()};
-	document.getElementsByTagName("tr").onmouseover=function(){mouseOut()};
-	
-	function mouseOver(){
-		document.getElementsByTagName("tr").style.color = "Thistle";
+	document.getElementById("stats").innerHTML =  "<tr><td colspan='12'>"+"Total Organizations"+" </td><td align='center'>" + orgNum + "</td></tr>"
+	+ "<tr><td colspan ='12'>"+ "Number of High Income Countries"+" </td><td align = 'center'>" + income +"</td></tr>"
+	+ "<tr><td colspan='12'>"+"Number of Organizations Created In the Twenty First Century"+"</td><td align='center'>" + year + "</td></tr>"
+	+ "<tr><td colspan='12'>" + "Number of Large Organizations"+"</td><td align = 'center'>"+largeCompanies+"</td></tr>";
+
+	function mouseOver(ele) {
+		ele.style.backgroundColor = "#d8bfd8";
 	}
-	function mouseOut(){
-		document.getElementsByTagName("tr").style.color="white";
+	function mouseOut(ele) {
+		ele.style.backgroundColor = "white";
 	}
-/*	document.getElementByID(td).onmouseover = function() {mouseOver()};
-	fuction mouseOver(){
-		document.getElementById(td).style.color= "red";
-	}*/
+	function hideRow(ele){
+		console.log(ele);
+		ele.style.display="none";
+		var y = ele.cells;
+		orgNum--;
+		if(y[2].innerHTML == "High income"){
+			
+			income--;
+			console.log(income);
+		}
+		if(parseInt(y[9].innerHTML) >= 2000){
+			year--;
+		}
+		if(y[10].innerHTML=="1000+"){
+		   largeCompanies--;
+		}
+		
+		document.getElementById("stats").innerHTML =  "<tr><td colspan='12'>"+"Total Organizations"+" </td><td align='center'>" + orgNum + "</td></tr>"
+		+ "<tr><td colspan ='12'>"+ "Number of High Income Countries"+" </td><td align = 'center'>" + income +"</td></tr>"
+		+ "<tr><td colspan='12'>"+"Number of Organizations Created In the Twenty First Century"+"</td><td align='center'>" + year + "</td></tr>"
+		+"<tr><td colspan='12'>" + "Number of Large Organizations"+"</td><td align = 'center'>"+largeCompanies+"</td></tr>";
+	}
 							 
 </script>
 
