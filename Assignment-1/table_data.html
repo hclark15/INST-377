@@ -248,12 +248,22 @@ var largeCompanies = 0;
 	for(var x in organizations){
 		if (organizations.hasOwnProperty(x)){
 			var obj = organizations[x];
-			text += "<tr onclick='hideRow(this)'><td>" + obj['Region'] + "</td><td>" + obj['Country'] +"</td><td>" + 
+			text += "<tr onclick='hideRow(this)' onmouseover = 'mouseOver(this)' onmouseout = 'mouseOut(this)'><td>" + obj['Region'] + "</td><td>" + obj['Country'] +"</td><td>" + 
 				obj['Country Income Level'] +"</td><td>" + obj['Organization Name'] + "</td><td>" + obj['Organization Type'] +
 				"</td><td>" + obj['Sectors'] +"</td><td>" + obj['Description'] + "</td><td>" + obj['City'] + "</td><td>" + obj['State/Region'] +
 				"</td><td>" + obj['Founding Year'] + "</td><td>" + obj['Size'] + "</td><td>" + obj['Type of Data Used'] +
 				"</td><td>" + obj['profileID'] + "</td></tr>";
 					
+		}
+		orgNum++;
+		if(obj['Country Income Level'] == "High income"){
+			income++;
+		}
+		if(parseInt(obj['Founding Year']) >= 2000){
+			year++;
+		}
+		if(obj['Size']=="1000+"){
+		   largeCompanies++;
 		}
 	}
 
